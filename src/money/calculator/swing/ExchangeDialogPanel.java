@@ -88,5 +88,4 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
         }
     }
 
-    
 }

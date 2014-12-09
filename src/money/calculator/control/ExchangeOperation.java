@@ -1,7 +1,10 @@
 package money.calculator.control;
 
 import money.calculator.loader.ExchangeRateLoader;
+import money.calculator.model.Currency;
+import money.calculator.model.Exchange;
 import money.calculator.model.ExchangeRate;
+import money.calculator.model.Money;
 import money.calculator.process.Exchanger;
 import money.calculator.ui.ExchangeDialog;
 
@@ -14,12 +17,26 @@ public class ExchangeOperation {
     }
     
     public void execute() {
-        System.out.println(dialog.getExchange().getMoney().getAmount());
-        System.out.println(dialog.getExchange().getMoney().getCurrency().getCode());
-        System.out.println(dialog.getExchange().getCurrency().getCode());
-        ExchangeRate exchangeRate = new ExchangeRateLoader().load(dialog.getExchange().getMoney().getCurrency(), dialog.getExchange().getCurrency());
-        Exchanger exchanger = new Exchanger(dialog.getExchange().getMoney(),exchangeRate);
-        System.out.println(exchanger.calculate().getAmount() + exchanger.calculate().getCurrency().getCode());
+        Exchange exchange = readExchange();
+        ExchangeRate exchangeRate = readExchangeRate(exchange.getMoney().getCurrency(), exchange.getCurrency());
+        Money money = exchangeMoney(exchange.getMoney(),exchangeRate);
+        displayMoney(money);
+    }
+
+    private Exchange readExchange() {
+        return dialog.getExchange();
     }
     
+     private ExchangeRate readExchangeRate(Currency from, Currency to) {
+        return new ExchangeRateLoader().load(from,to);
+    }
+    
+    private Money exchangeMoney(Money money, ExchangeRate exchangeRate) {
+        return new Exchanger(money,exchangeRate).calculate();
+    }
+
+    private void displayMoney(Money money) {
+        System.out.println(String.valueOf(money.getAmount()).substring(0, String.valueOf(money.getAmount()).indexOf(".") + 3)
+        + " " + money.getCurrency().getCode());
+    }
 }
