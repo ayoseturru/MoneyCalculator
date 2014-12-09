@@ -42,8 +42,8 @@ public class ApplicationFrame extends JFrame {
     }
 
     private JButton createCalculateButton() {
-        JButton button = new JButton("Calcular");
-        button.addActionListener(createListener("Calcular"));
+        JButton button = new JButton("Calculate");
+        button.addActionListener(createListener("Calculate"));
         return button;
     }
 

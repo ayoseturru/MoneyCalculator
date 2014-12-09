@@ -12,7 +12,7 @@ public class Application {
     public static void main(String[] args) {
         CurrencySet currencySet = new CurrencySetLoader().load();
         final ApplicationFrame frame = new ApplicationFrame(currencySet);
-        frame.register("Calcular", new ActionListener() {
+        frame.register("Calculate", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
                 new ExchangeOperation(frame.getDialog()).execute();
