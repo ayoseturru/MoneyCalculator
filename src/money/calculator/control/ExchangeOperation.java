@@ -6,6 +6,7 @@ import money.calculator.model.Exchange;
 import money.calculator.model.ExchangeRate;
 import money.calculator.model.Money;
 import money.calculator.process.Exchanger;
+import money.calculator.swing.MoneyCalculatorDisplay;
 import money.calculator.ui.ExchangeDialog;
 
 public class ExchangeOperation {
@@ -36,6 +37,7 @@ public class ExchangeOperation {
     }
 
     private void displayMoney(Money money) {
+        new MoneyCalculatorDisplay(money);
         showMoney(money);
     }
 

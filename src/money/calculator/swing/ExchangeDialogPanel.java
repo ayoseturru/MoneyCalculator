@@ -70,10 +70,8 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
     }
 
     private double getAmount() {
-        for (int i = 0; i < amount.getText().length(); i++) {
-            if((isLetter(amount.getText().charAt(i)))) {
-                return 0;
-            }
+        if(amount.getText().length() == 0 || haveLetters(amount.getText())) {
+            return 0;
         }
         return Double.parseDouble(amount.getText());
     }
@@ -92,6 +90,15 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
             if (currency == getFromCurrency()) continue;
             toCurrency.addItem(currency);
         }
+    }
+
+    private boolean haveLetters(String text) {
+        for (int i = 0; i < amount.getText().length(); i++) {
+            if((isLetter(amount.getText().charAt(i)))) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
