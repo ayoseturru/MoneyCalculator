@@ -36,7 +36,15 @@ public class ExchangeOperation {
     }
 
     private void displayMoney(Money money) {
-        System.out.println(String.valueOf(money.getAmount()).substring(0, String.valueOf(money.getAmount()).indexOf(".") + 3)
-        + " " + money.getCurrency().getCode());
+        showMoney(money);
+    }
+
+    private void showMoney(Money money) {
+       if(String.valueOf(money.getAmount()).indexOf(".") > 1) {
+            System.out.println(String.valueOf(money.getAmount()).substring(0, String.valueOf(money.getAmount()).indexOf(".") + 3)
+            + " " + money.getCurrency().getCode());
+        } else {
+            System.out.println(String.valueOf(money.getAmount()) + " " + money.getCurrency().getCode());
+        }
     }
 }

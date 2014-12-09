@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import static java.awt.FlowLayout.LEFT;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import static java.lang.Character.isLetter;
 import java.util.Arrays;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -69,6 +70,11 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
     }
 
     private double getAmount() {
+        for (int i = 0; i < amount.getText().length(); i++) {
+            if((isLetter(amount.getText().charAt(i)))) {
+                return 0;
+            }
+        }
         return Double.parseDouble(amount.getText());
     }
     
