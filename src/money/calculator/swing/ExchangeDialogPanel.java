@@ -31,7 +31,10 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
     public Exchange getExchange() {
         return new Exchange(new Money(getAmount(), getFromCurrency()), getToCurrency());
     }
-
+    @Override
+    public void setTextToNull() {
+        amount.setText("");
+    }
     private void createWidgets() {
         this.add(createAmountWidget());
         this.add(createFromCurrencyWidget());
