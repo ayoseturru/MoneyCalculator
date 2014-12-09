@@ -1,6 +1,6 @@
 package money.calculator.control;
 
-import money.calculator.loader.ExchangeRateLoader;
+import money.calculator.persistence.ExchangeRateLoader;
 import money.calculator.model.Currency;
 import money.calculator.model.Exchange;
 import money.calculator.model.ExchangeRate;
