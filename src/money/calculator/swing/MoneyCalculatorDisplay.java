@@ -26,11 +26,11 @@ public class MoneyCalculatorDisplay extends JFrame{
     }
     
     private String writeMoney(Money money) {
-       if(String.valueOf(money.getAmount()).indexOf(".") > 1) {
+       if(String.valueOf(money.getAmount()).contains(".") && money.getAmount() != 0.0) {
             return(String.valueOf(money.getAmount()).substring(0, String.valueOf(money.getAmount()).indexOf(".") + 3)
             + " " + money.getCurrency().getCode());
         } else {
-            return (String.valueOf(money.getAmount()) + " " + money.getCurrency().getCode());
+            return (String.valueOf(money.getAmount()) + "0 " + money.getCurrency().getCode());
         }
     }
 }

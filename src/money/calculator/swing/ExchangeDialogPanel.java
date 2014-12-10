@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import static java.awt.FlowLayout.LEFT;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
 import java.util.Arrays;
 import javax.swing.JComboBox;
@@ -97,7 +98,7 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
 
     private boolean haveLetters(String text) {
         for (int i = 0; i < amount.getText().length(); i++) {
-            if((isLetter(amount.getText().charAt(i)))) {
+            if((!isDigit(amount.getText().charAt(i)))) {
                 return true;
             }
         }
