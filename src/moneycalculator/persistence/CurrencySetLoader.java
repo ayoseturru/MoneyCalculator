@@ -1,7 +1,7 @@
-package money.calculator.persistence;
+package moneycalculator.persistence;
 
-import money.calculator.model.Currency;
-import money.calculator.model.CurrencySet;
+import moneycalculator.model.Currency;
+import moneycalculator.model.CurrencySet;
 
 public class CurrencySetLoader {
     private final CurrencySet currencySet;

@@ -1,4 +1,4 @@
-package money.calculator.swing;
+package moneycalculator.swing;
 
 import java.awt.FlowLayout;
 import static java.awt.FlowLayout.LEFT;
@@ -10,11 +10,11 @@ import java.util.Arrays;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import money.calculator.model.Currency;
-import money.calculator.model.CurrencySet;
-import money.calculator.model.Exchange;
-import money.calculator.model.Money;
-import money.calculator.ui.ExchangeDialog;
+import moneycalculator.model.Currency;
+import moneycalculator.model.CurrencySet;
+import moneycalculator.model.Exchange;
+import moneycalculator.model.Money;
+import moneycalculator.ui.ExchangeDialog;
 
 public class ExchangeDialogPanel extends JPanel implements ExchangeDialog { 
     private final CurrencySet currencySet;

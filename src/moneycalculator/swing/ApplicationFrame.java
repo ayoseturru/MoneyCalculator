@@ -1,4 +1,4 @@
-package money.calculator.swing;
+package moneycalculator.swing;
 
 import static java.awt.BorderLayout.*;
 import java.awt.event.ActionEvent;
@@ -8,8 +8,8 @@ import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import money.calculator.model.CurrencySet;
-import money.calculator.ui.ExchangeDialog;
+import moneycalculator.model.CurrencySet;
+import moneycalculator.ui.ExchangeDialog;
 
 public class ApplicationFrame extends JFrame {
     

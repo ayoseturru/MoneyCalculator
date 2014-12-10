@@ -1,7 +1,7 @@
-package money.calculator.process;
+package moneycalculator.process;
 
-import money.calculator.model.ExchangeRate;
-import money.calculator.model.Money;
+import moneycalculator.model.ExchangeRate;
+import moneycalculator.model.Money;
 
 public class Exchanger {
     private final Money money;

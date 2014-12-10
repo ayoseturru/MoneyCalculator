@@ -1,13 +1,13 @@
-package money.calculator.control;
+package moneycalculator.control;
 
-import money.calculator.persistence.ExchangeRateLoader;
-import money.calculator.model.Currency;
-import money.calculator.model.Exchange;
-import money.calculator.model.ExchangeRate;
-import money.calculator.model.Money;
-import money.calculator.process.Exchanger;
-import money.calculator.swing.MoneyCalculatorDisplay;
-import money.calculator.ui.ExchangeDialog;
+import moneycalculator.persistence.ExchangeRateLoader;
+import moneycalculator.model.Currency;
+import moneycalculator.model.Exchange;
+import moneycalculator.model.ExchangeRate;
+import moneycalculator.model.Money;
+import moneycalculator.process.Exchanger;
+import moneycalculator.swing.MoneyCalculatorDisplay;
+import moneycalculator.ui.ExchangeDialog;
 
 public class ExchangeOperation {
     

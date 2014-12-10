@@ -1,11 +1,11 @@
-package money.calculator;
+package moneycalculator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import money.calculator.control.ExchangeOperation;
-import money.calculator.persistence.CurrencySetLoader;
-import money.calculator.model.CurrencySet;
-import money.calculator.swing.ApplicationFrame;
+import moneycalculator.control.ExchangeOperation;
+import moneycalculator.persistence.CurrencySetLoader;
+import moneycalculator.model.CurrencySet;
+import moneycalculator.swing.ApplicationFrame;
 
 public class Application {
 

@@ -1,8 +1,8 @@
-package money.calculator.persistence;
+package moneycalculator.persistence;
 
 import java.util.ArrayList;
-import money.calculator.model.Currency;
-import money.calculator.model.ExchangeRate;
+import moneycalculator.model.Currency;
+import moneycalculator.model.ExchangeRate;
 
 public class ExchangeRateLoader {
     ArrayList<String> currency;

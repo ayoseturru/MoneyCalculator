@@ -1,9 +1,9 @@
-package money.calculator.swing;
+package moneycalculator.swing;
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import money.calculator.model.Money;
+import moneycalculator.model.Money;
 
 public class MoneyCalculatorDisplay extends JFrame{
     Money money;
