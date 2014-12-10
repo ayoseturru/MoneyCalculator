@@ -5,7 +5,6 @@ import static java.awt.FlowLayout.LEFT;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import static java.lang.Character.isDigit;
-import static java.lang.Character.isLetter;
 import java.util.Arrays;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -52,7 +51,7 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
     private JComboBox createFromCurrencyWidget() {
         Currency[] currencies = currencySet.getItems();
         Arrays.sort(currencies);
-        JComboBox<Currency> combo = new JComboBox<Currency>(currencies);
+        JComboBox<Currency> combo = new JComboBox<>(currencies);
         combo.addItemListener(new ItemListener() {
 
             @Override
@@ -67,7 +66,7 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
     }
 
     private JComboBox createToCurrencyWidget() {
-        JComboBox<Currency> combo = new JComboBox<Currency>();
+        JComboBox<Currency> combo = new JComboBox<>();
         this.toCurrency = combo;
         addCurrenciesToTargetCombobox();
         return combo;
@@ -97,8 +96,8 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
     }
 
     private boolean haveLetters(String text) {
-        for (int i = 0; i < amount.getText().length(); i++) {
-            if((!isDigit(amount.getText().charAt(i)))) {
+        for (int i = 0; i < text.length(); i++) {
+            if((!isDigit(text.charAt(i)))) {
                 return true;
             }
         }
