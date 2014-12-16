@@ -6,6 +6,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import static java.lang.Character.isDigit;
 import java.util.Arrays;
+import java.util.Comparator;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -31,10 +32,12 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
     public Exchange getExchange() {
         return new Exchange(new Money(getAmount(), getFromCurrency()), getToCurrency());
     }
+    
     @Override
-    public void setTextToNull() {
+    public void reset() {
         amount.setText("");
     }
+
     private void createWidgets() {
         this.add(createAmountWidget());
         this.add(createFromCurrencyWidget());
@@ -50,7 +53,8 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
 
     private JComboBox createFromCurrencyWidget() {
         Currency[] currencies = currencySet.getItems();
-        Arrays.sort(currencies);
+        Arrays.sort(currencies, new CurrencyComparator() {
+        });
         JComboBox<Currency> combo = new JComboBox<>(currencies);
         combo.addItemListener(new ItemListener() {
 
@@ -89,7 +93,9 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
 
     private void addCurrenciesToTargetCombobox() {
         toCurrency.removeAllItems();
-        for (Currency currency : currencySet) {
+        Currency[] currencies = currencySet.getItems();
+        Arrays.sort(currencies, new CurrencyComparator());
+        for (Currency currency : currencies) {
             if (currency == getFromCurrency()) continue;
             toCurrency.addItem(currency);
         }
@@ -102,6 +108,14 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
             }
         }
         return false;
+    }
+
+    private static class CurrencyComparator implements Comparator<Currency> {
+
+        @Override
+        public int compare(Currency a, Currency o2) {
+            return a.getName().compareTo(o2.getName());
+        }
     }
 
 }

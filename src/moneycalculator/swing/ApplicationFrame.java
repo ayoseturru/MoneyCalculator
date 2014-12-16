@@ -1,24 +1,31 @@
 package moneycalculator.swing;
 
 import static java.awt.BorderLayout.*;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import moneycalculator.model.CurrencySet;
 import moneycalculator.ui.ExchangeDialog;
+import moneycalculator.ui.MoneyDisplay;
 
 public class ApplicationFrame extends JFrame {
     
     private final CurrencySet currencySet;
-    private Map<String,ActionListener> listeners;
+    private final Map<String,ActionListener> listeners;
     private ExchangeDialog exchangeDialog;
-
+    private MoneyDisplay moneyDisplay;
+    
     public ApplicationFrame(CurrencySet currencySet) {
         super();
+        this.setLocation(400, 250);
+        this.setResizable(false);
         this.currencySet = currencySet;
         this.listeners = new HashMap<>();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,6 +33,7 @@ public class ApplicationFrame extends JFrame {
         this.setTitle("Money Calculator");
         this.createWidgets();
         this.setVisible(true);
+        ApplicationFrame.this.add(createMoneyDisplay(),NORMAL);
     }
 
     public void register(String command, ActionListener actionListener) {
@@ -34,6 +42,10 @@ public class ApplicationFrame extends JFrame {
 
     public ExchangeDialog getDialog() {
         return exchangeDialog;
+    }
+    
+    public MoneyDisplay getMoneyLabel() {
+        return moneyDisplay;
     }
 
     private void createWidgets() {
@@ -52,6 +64,7 @@ public class ApplicationFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent event) {
                 listeners.get(text).actionPerformed(event);
+                ApplicationFrame.this.exchangeDialog.reset();
             }
         };
     }
@@ -60,6 +73,12 @@ public class ApplicationFrame extends JFrame {
         ExchangeDialogPanel panel = new ExchangeDialogPanel(currencySet);
         this.exchangeDialog = panel;
         return panel;
+    }
+
+    private JLabel createMoneyDisplay() {
+        MoneyDisplayLabel moneyLabel = new MoneyDisplayLabel();
+        this.moneyDisplay = moneyLabel;
+        return moneyLabel;
     }
 
 }

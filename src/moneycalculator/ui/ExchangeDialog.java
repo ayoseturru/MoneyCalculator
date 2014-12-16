@@ -6,6 +6,6 @@ public interface ExchangeDialog {
     
     public Exchange getExchange();
 
-    public void setTextToNull();
+    public void reset();
     
 }

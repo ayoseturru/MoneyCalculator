@@ -6,23 +6,24 @@ import moneycalculator.model.Exchange;
 import moneycalculator.model.ExchangeRate;
 import moneycalculator.model.Money;
 import moneycalculator.process.Exchanger;
-import moneycalculator.swing.MoneyCalculatorDisplay;
 import moneycalculator.ui.ExchangeDialog;
+import moneycalculator.ui.MoneyDisplay;
 
 public class ExchangeOperation {
     
     private final ExchangeDialog dialog;
+    private final MoneyDisplay money;
 
-    public ExchangeOperation(ExchangeDialog dialog) {
+    public ExchangeOperation(ExchangeDialog dialog, MoneyDisplay money) {
         this.dialog = dialog;
+        this.money = money;
     }
     
     public void execute() {
         Exchange exchange = readExchange();
-        dialog.setTextToNull();
         ExchangeRate exchangeRate = readExchangeRate(exchange.getMoney().getCurrency(), exchange.getCurrency());
         Money money = exchangeMoney(exchange.getMoney(),exchangeRate);
-        displayMoney(money);
+        this.money.showMoney(money);
     }
 
     private Exchange readExchange() {
@@ -37,7 +38,4 @@ public class ExchangeOperation {
         return new Exchanger(money,exchangeRate).calculate();
     }
 
-    private void displayMoney(Money money) {
-        new MoneyCalculatorDisplay(money);
-    }
 }

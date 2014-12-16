@@ -1,6 +1,6 @@
 package moneycalculator.model;
 
-public class Currency implements Comparable<Currency> {
+public class Currency {
     private final String code;
     private final String name;
     private final String symbol;
@@ -28,9 +28,8 @@ public class Currency implements Comparable<Currency> {
         return name;
     }
 
-    @Override
-    public int compareTo(Currency o) {
-        return this.getName().compareTo(o.getName());
+    public int compareTo(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

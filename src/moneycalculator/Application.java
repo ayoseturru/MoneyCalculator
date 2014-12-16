@@ -15,7 +15,7 @@ public class Application {
         frame.register("Calculate", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                new ExchangeOperation(frame.getDialog()).execute();
+                new ExchangeOperation(frame.getDialog(), frame.getMoneyLabel()).execute();
             }
             
         });
