@@ -14,7 +14,7 @@ import moneycalculator.web.WebCurrencySetLoader;
 public class Application {
 
     public static void main(String[] args) {
-        CurrencySet currencySet = new WebCurrencySetLoader().load();
+        CurrencySet currencySet = new WebCurrencySetLoader("currencies.txt").load();
         final ApplicationFrame frame = new ApplicationFrame(currencySet);
         frame.register("Calculate", new ActionListener() {
             @Override
