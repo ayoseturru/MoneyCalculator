@@ -9,7 +9,7 @@ import moneycalculator.model.Money;
 import moneycalculator.process.Exchanger;
 import moneycalculator.ui.ExchangeDialog;
 import moneycalculator.ui.MoneyDisplay;
-import moneycalculator.web.WebExchangeRateLoader;
+import moneycalculator.web.CurrencyReaderExchangeRateLoader;
 
 public class ExchangeOperation {
     
@@ -33,7 +33,7 @@ public class ExchangeOperation {
     }
     
      private ExchangeRate readExchangeRate(Currency from, Currency to) throws IOException {
-        return new WebExchangeRateLoader().load(from,to);
+        return new CurrencyReaderExchangeRateLoader().load(from,to);
     }
     
     private Money exchangeMoney(Money money, ExchangeRate exchangeRate) {

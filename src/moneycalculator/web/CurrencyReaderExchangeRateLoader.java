@@ -11,10 +11,10 @@ import moneycalculator.model.Currency;
 import moneycalculator.model.ExchangeRate;
 import moneycalculator.persistence.ExchangeRateLoader;
 
-public class WebExchangeRateLoader implements ExchangeRateLoader {
+public class CurrencyReaderExchangeRateLoader implements ExchangeRateLoader {
     HashMap<String,Double> rates;
 
-    public WebExchangeRateLoader() throws UnsupportedEncodingException, IOException {
+    public CurrencyReaderExchangeRateLoader() throws UnsupportedEncodingException, IOException {
         rates = new HashMap<>();
         setRates();
     }
