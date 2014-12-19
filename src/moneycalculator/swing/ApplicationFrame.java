@@ -27,7 +27,7 @@ public class ApplicationFrame extends JFrame {
         this.currencySet = currencySet;
         this.listeners = new HashMap<>();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(550,250);
+        this.setSize(600,250);
         this.setTitle("Money Calculator");
         this.createWidgets();
         this.setVisible(true);

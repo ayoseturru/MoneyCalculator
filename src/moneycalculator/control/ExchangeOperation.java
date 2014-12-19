@@ -1,6 +1,7 @@
 package moneycalculator.control;
 
-import moneycalculator.persistence.ExchangeRateLoader;
+import java.io.IOException;
+import moneycalculator.mock.MockExchangeRateLoader;
 import moneycalculator.model.Currency;
 import moneycalculator.model.Exchange;
 import moneycalculator.model.ExchangeRate;
@@ -8,6 +9,7 @@ import moneycalculator.model.Money;
 import moneycalculator.process.Exchanger;
 import moneycalculator.ui.ExchangeDialog;
 import moneycalculator.ui.MoneyDisplay;
+import moneycalculator.web.WebExchangeRateLoader;
 
 public class ExchangeOperation {
     
@@ -19,7 +21,7 @@ public class ExchangeOperation {
         this.money = money;
     }
     
-    public void execute() {
+    public void execute() throws IOException {
         Exchange exchange = readExchange();
         ExchangeRate exchangeRate = readExchangeRate(exchange.getMoney().getCurrency(), exchange.getCurrency());
         Money money = exchangeMoney(exchange.getMoney(),exchangeRate);
@@ -30,8 +32,8 @@ public class ExchangeOperation {
         return dialog.getExchange();
     }
     
-     private ExchangeRate readExchangeRate(Currency from, Currency to) {
-        return new ExchangeRateLoader().load(from,to);
+     private ExchangeRate readExchangeRate(Currency from, Currency to) throws IOException {
+        return new WebExchangeRateLoader().load(from,to);
     }
     
     private Money exchangeMoney(Money money, ExchangeRate exchangeRate) {
