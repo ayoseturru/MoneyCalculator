@@ -1,4 +1,4 @@
-package moneycalculator.mock;
+package moneycalculator.persistence.mock;
 
 import moneycalculator.model.Currency;
 import moneycalculator.model.CurrencySet;

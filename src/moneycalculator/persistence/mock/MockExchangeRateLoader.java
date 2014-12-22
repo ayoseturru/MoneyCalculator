@@ -1,4 +1,4 @@
-package moneycalculator.mock;
+package moneycalculator.persistence.mock;
 
 import java.util.ArrayList;
 import moneycalculator.model.Currency;

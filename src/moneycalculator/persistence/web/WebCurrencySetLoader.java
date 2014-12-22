@@ -1,4 +1,4 @@
-package moneycalculator.web;
+package moneycalculator.persistence.web;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

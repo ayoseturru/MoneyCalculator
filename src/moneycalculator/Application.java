@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import moneycalculator.control.ExchangeOperation;
-import moneycalculator.mock.MockCurrencySetLoader;
+import moneycalculator.persistence.mock.MockCurrencySetLoader;
 import moneycalculator.model.CurrencySet;
 import moneycalculator.swing.ApplicationFrame;
-import moneycalculator.web.WebCurrencySetLoader;
+import moneycalculator.persistence.web.WebCurrencySetLoader;
 
 public class Application {
 

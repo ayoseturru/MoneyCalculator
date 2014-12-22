@@ -1,7 +1,7 @@
 package moneycalculator.control;
 
 import java.io.IOException;
-import moneycalculator.mock.MockExchangeRateLoader;
+import moneycalculator.persistence.mock.MockExchangeRateLoader;
 import moneycalculator.model.Currency;
 import moneycalculator.model.Exchange;
 import moneycalculator.model.ExchangeRate;
@@ -9,7 +9,7 @@ import moneycalculator.model.Money;
 import moneycalculator.process.Exchanger;
 import moneycalculator.ui.ExchangeDialog;
 import moneycalculator.ui.MoneyDisplay;
-import moneycalculator.web.CurrencyReaderExchangeRateLoader;
+import moneycalculator.persistence.web.CurrencyReaderExchangeRateLoader;
 
 public class ExchangeOperation {
     
