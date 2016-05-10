@@ -1,5 +1,5 @@
 # FitTable
-A Java Currency Exchanger that gets latest currency from [fixer.io](fixer.io)
+A Java Currency Exchanger that gets latest currency from [fixer.io](http://www.fixer.io)
 
 ### Prerequisities
 
